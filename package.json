@@ -1,5 +1,5 @@
 {
-  "name": "serverless-middleware-engine",
+  "name": "@refactoringjs/serverless-middleware-js",
   "version": "1.0.0",
   "description": "JavaScript middleware engine for serverless functions.",
   "main": "index.js",
