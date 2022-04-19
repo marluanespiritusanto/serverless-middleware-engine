@@ -4,9 +4,15 @@ module.exports = class FunctionMiddleware {
   #options = {};
   #stack = [];
 
-  constructor(options) {
-    this.#options = options;
+  constructor({ httpHandler }) {
+    this.#options = { httpHandler };
   }
+
+  /**
+   * @description Introduce a new middleware to the stack
+   * @param {Function} fn Serverless function
+   * @returns {FunctionMiddleware}
+   */
 
   use(fn) {
     this.#stack.push({ fn });
@@ -14,18 +20,33 @@ module.exports = class FunctionMiddleware {
     return this;
   }
 
+  /**
+   * @description Function to catch exceptions
+   * @param {Function} fn Serverless function
+   * @returns {FunctionMiddleware}
+   */
   catch(fn) {
     this.#stack.push({ fn, isError: true });
 
     return this;
   }
 
+  /**
+   * @description Introduce a new middleware to the stack with a condition for its execution
+   * @param {Function} fn Serverless function
+   * @param {Function} predicate Function that return a boolean
+   * @returns {FunctionMiddleware}
+   */
   useIf(fn, predicate) {
     this.#stack.push({ fn, predicate, conditional: true });
 
     return this;
   }
 
+  /**
+   * @description Pass the middleware engine to the function one.
+   * @returns {Function} Function context
+   */
   listen() {
     return async (context, inputs, ...args) => {
       if (this.#options.httpHandler) {
@@ -46,6 +67,7 @@ module.exports = class FunctionMiddleware {
     const done = context.done;
 
     // done method overwrite
+    // TODO: implement a logger pattern
     context.done = (...params) => {
       done(...params);
     };
