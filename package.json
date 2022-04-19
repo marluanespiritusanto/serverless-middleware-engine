@@ -1,0 +1,30 @@
+{
+  "name": "serverless-middleware-engine",
+  "version": "1.0.0",
+  "description": "JavaScript middleware engine for serverless functions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marluanespiritusanto/serverless-middleware-engine.git"
+  },
+  "keywords": [
+    "serverless",
+    "cloud",
+    "functions",
+    "functions",
+    "faas",
+    "cloud"
+  ],
+  "author": "Marluan Espiritusanto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marluanespiritusanto/serverless-middleware-engine/issues"
+  },
+  "homepage": "https://github.com/marluanespiritusanto/serverless-middleware-engine#readme",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
