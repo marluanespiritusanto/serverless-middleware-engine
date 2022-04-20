@@ -4,7 +4,7 @@ module.exports = class FunctionMiddleware {
   #options = {};
   #stack = [];
 
-  constructor({ httpHandler }) {
+  constructor({ httpHandler } = {}) {
     this.#options = { httpHandler };
   }
 
