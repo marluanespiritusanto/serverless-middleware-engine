@@ -15,10 +15,10 @@ module.exports = class HttpHandler {
      */
     const done = (status, data = {}) => {
       data = {
-        ...data,
         success: status >= 200 && status < 300,
         statusCode: status,
         timestamp: new Date().toISOString(),
+        ...data,
       };
 
       context.res.status(status).json(data);
