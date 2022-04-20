@@ -1,6 +1,6 @@
 {
-  "name": "@refactoringjs/serverless-middleware-js",
-  "version": "1.0.1",
+  "name": "serverless-middleware-js",
+  "version": "1.0.2",
   "description": "JavaScript middleware engine for serverless functions.",
   "main": "index.js",
   "scripts": {

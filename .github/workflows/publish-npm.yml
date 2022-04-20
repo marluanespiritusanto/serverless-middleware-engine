@@ -24,9 +24,6 @@ jobs:
       - name: Install dependecies
         run: npm ci
 
-      - name: Setting access
-        run: npm config set access public
-
       - name: Publish package
         run: npm publish
         env:
